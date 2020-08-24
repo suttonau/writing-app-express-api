@@ -21,7 +21,12 @@ const typeDefs = gql`
 // Execute logic based on the backend models
 const resolvers = {
   Query: {
-    prompt: async (_, args) => {
+    // parent: object that contains the parent type
+    // args: handles any arguments passed into the field
+    // context: an object that is shared by all resolvers in the GQL operations
+    // context is especially useful for authentication, incorporate a users id for every request i.e.
+    // info: information about the execution of our operation, useful for debugging
+    prompt: async (parent, args, context, info) => {
       const prompt = await Prompt.findOne({
         order: sequelize.random()
        });
