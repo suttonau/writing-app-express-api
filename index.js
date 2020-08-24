@@ -30,9 +30,11 @@ const resolvers = {
   }
 };
 
+// Initializes the Apollo Server
 const server = new ApolloServer({
   typeDefs,
   resolvers
 })
 
+// runs the server on a port
 server.listen({port}, () => console.log(`Server running on localhost: ${port}!`))
