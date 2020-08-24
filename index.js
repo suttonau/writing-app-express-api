@@ -38,7 +38,9 @@ const resolvers = {
 // Initializes the Apollo Server
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  introspection: true,
+  playground: true,
 })
 
 // runs the server on a port
